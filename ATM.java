@@ -1,3 +1,5 @@
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.HashMap;
 
 public class ATM {
@@ -71,5 +73,16 @@ public class ATM {
         } catch (Error e) {
             return false;
         }
+    }
+
+    public void audit() throws IOException {
+        StringBuilder builder = new StringBuilder();
+        for (HashMap.Entry<String, Double> account : accounts.entrySet()) {
+            builder.append(account.getKey() + ": " + account.getValue() + "\n");
+        }
+        FileWriter writer = new FileWriter("AccountAudit.txt", false);
+        builder.deleteCharAt(builder.length() - 1);
+        writer.write(builder.toString());
+        writer.close();
     }
 }
