@@ -1,5 +1,7 @@
 public class ATMTester {
     public static void main(String[] args) {
-        System.out.println("Hello world");
+        ATM atm = new ATM();
+        atm.openAccount("Tony", 100);
+        atm.openAccount("Tony", 200);
     }
 }
