@@ -59,4 +59,17 @@ public class ATM {
         }
         throw new Error("Regretfully, " + userId + " seems to be broke AF.");
     }
+
+    public boolean transferMoney(String fromAccount, String toAccount, double amount) {
+        try {
+            if (amount < 0) {
+                return false;
+            }
+            withdrawMoney(fromAccount, amount);
+            depositMoney(toAccount, amount);
+            return true;
+        } catch (Error e) {
+            return false;
+        }
+    }
 }
