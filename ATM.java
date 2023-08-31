@@ -13,4 +13,17 @@ public class ATM {
         }
         accounts.put(userId, amount);
     }
+
+    public void closeAccount(String userId) {
+        if (accounts.containsKey(userId)) {
+            double balance = accounts.get(userId);
+            if (balance == 0) {
+                accounts.remove(userId);
+            } else {
+                throw new Error("User needs to withdraw balance of $" + balance + " before account can be closed.");
+            }
+        } else {
+            throw new Error("User does not exist.");
+        }
+    }
 }
