@@ -34,4 +34,14 @@ public class ATM {
             throw new Error("User with id " + userId + " does not exist.");
         }
     }
+
+    public double depositMoney(String userId, double amount) {
+        if (accounts.containsKey(userId)) {
+            accounts.replace(userId, accounts.get(userId) + amount);
+            return amount;
+        } else {
+            throw new Error(
+                    "User with id " + userId + " does not exist. Regretfully " + userId + " seems to be broke AF.");
+        }
+    }
 }
