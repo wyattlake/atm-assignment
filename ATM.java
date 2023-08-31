@@ -41,7 +41,22 @@ public class ATM {
             return amount;
         } else {
             throw new Error(
-                    "User with id " + userId + " does not exist. Regretfully " + userId + " seems to be broke AF.");
+                    "User with id " + userId + " does not exist. Regretfully, " + userId + " seems to be broke AF.");
         }
+    }
+
+    public double withdrawMoney(String userId, double amount) {
+        if (accounts.containsKey(userId)) {
+            double balance = accounts.get(userId);
+            if (balance >= amount) {
+                double newBalance = balance - amount;
+                accounts.replace(userId, newBalance);
+                return newBalance;
+            }
+        } else {
+            throw new Error(
+                    "User with id " + userId + " does not exist.");
+        }
+        throw new Error("Regretfully, " + userId + " seems to be broke AF.");
     }
 }

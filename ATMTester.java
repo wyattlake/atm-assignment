@@ -3,6 +3,7 @@ public class ATMTester {
         ATM atm = new ATM();
         atm.openAccount("Tony", 100);
         System.out.println(atm.depositMoney("Tony", 50));
-        atm.depositMoney("Rob", 100);
+        System.out.println(atm.withdrawMoney("Tony", 60));
+        System.out.println(atm.withdrawMoney("Tony", 500));
     }
 }
