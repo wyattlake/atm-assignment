@@ -23,7 +23,15 @@ public class ATM {
                 throw new Error("User needs to withdraw balance of $" + balance + " before account can be closed.");
             }
         } else {
-            throw new Error("User does not exist.");
+            throw new Error("User with id " + userId + " does not exist.");
+        }
+    }
+
+    public double checkBalance(String userId) {
+        if (accounts.containsKey(userId)) {
+            return accounts.get(userId);
+        } else {
+            throw new Error("User with id " + userId + " does not exist.");
         }
     }
 }
